@@ -4,84 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script2.js" defer></script>
 </head>
 <body>
-    <script>
-        function computerPlay() {
-            // Returns the selection of the computer.
-            const val = Math.floor (Math.random() * 3) + 1;
-
-            switch(val) {
-                case 1:
-                    return 'ROCK';
-                
-                case 2: 
-                    return 'PAPER';
-
-                case 3:
-                    return 'SCISSORS';
-            }
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            // plays a single round of the game
-            playerSelection = playerSelection.toUpperCase();
-
-            if ((playerSelection == "ROCK" & computerSelection == "PAPER") | (playerSelection == "PAPER" & computerSelection == "SCISSORS") | (playerSelection == "SCISSORS" & computerSelection == "ROCK")) {
-                //player loses
-                return -1;
-            }
-            else if (playerSelection == computerSelection) {
-                //round draw
-                return 0;
-            }
-            else {
-                //player wins
-                return 1;
-            }
-        } 
-
-        function game() {
-            let playerScore = 0;
-            let computerScore = 0;
-
-            for (let i = 1; i <= 5; i++) {
-                const playerSelection = prompt("Enter your choice");
-                const computerSelection = computerPlay();
-
-                let roundResult = playRound(playerSelection, computerSelection);
-
-                switch(roundResult) {
-                    case -1:
-                        computerScore++;
-                        console.log(`You LOSE!!! ${computerSelection} beats ${playerSelection}`);
-                        break;
-
-                    case 0:
-                        console.log("It's a TIE.");
-                        break;
-
-                    case 1:
-                        playerScore++;
-                        console.log(`You WIN!!! ${computerSelection} beats ${playerSelection}`)
-                }
-
-                console.log(`This was ROUND ${i} and the score is YOU: ${playerScore} and COMPUTER: ${computerScore}`);
-            }  
-            
-            console.log(`\n\nThe final score is YOU: ${playerScore} and COMPUTER: ${computerScore}`);
-
-            if (playerScore > computerScore)
-                console.log("YOU WON THE GAME!!!");
-            else if (playerScore == computerScore)
-                console.log("THE GAME TIED");
-            else
-                console.log("COMPUTER WON THE GAME!!!");
-        }
-
-        game();
-
-    </script>
+    <h1>Game of ROCK-PAPER-SCISSORS</h1>
+    <div class="gameBod">
+        <div class="buttons">
+            <button id = "ROCK">ROCK</button>
+            <button id = "PAPER">PAPER</button>
+            <button id = "SCISSORS">SCISSORS</button>
+        </div>
+        <div class="result">  </div>
+    </div>
 </body>
 </html>
